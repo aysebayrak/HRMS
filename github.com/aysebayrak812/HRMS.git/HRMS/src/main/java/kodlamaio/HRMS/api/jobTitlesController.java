@@ -13,7 +13,7 @@ import kodlamaio.HRMS.entities.concretes.jobTitle;
 
 
 @RestController
-@RequestMapping("/api/titles/")
+@RequestMapping("/api/titles")
 public class jobTitlesController {
 	
 
