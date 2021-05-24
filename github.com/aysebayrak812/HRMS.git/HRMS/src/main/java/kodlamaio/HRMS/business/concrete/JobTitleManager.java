@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import kodlamaio.HRMS.business.abstracts.JobTitleService;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
+import kodlamaio.HRMS.core.utilities.result.ErrorResult;
 import kodlamaio.HRMS.core.utilities.result.Result;
 import kodlamaio.HRMS.core.utilities.result.SuccessDataResult;
+import kodlamaio.HRMS.core.utilities.result.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.JobTitleDao;
 import kodlamaio.HRMS.entities.concretes.JobTitle;
 @Service
@@ -33,7 +35,13 @@ public class JobTitleManager implements JobTitleService {
 	@Override
 	public Result add(JobTitle jobTitle) {
 		
-		return null;
+		if(getByTitle(jobTitle.getTitle()).getData()!= null) {
+			return new ErrorResult("Pozisyon var");
+			
+			
+		}
+		this.jobTitleDao.save(jobTitle);
+		return new SuccessResult("pozisyon eklendi");
 	}
 	
 	
