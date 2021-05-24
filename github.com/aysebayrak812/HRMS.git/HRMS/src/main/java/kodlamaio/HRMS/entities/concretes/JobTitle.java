@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor//PARAMETRESİZ
 @Entity
 @Table(name="job_titles")
-public class jobTitle {
+public class JobTitle {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//bir bir artti diye
