@@ -2,6 +2,8 @@ package kodlamaio.HRMS.business.concrete;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import kodlamaio.HRMS.business.abstracts.EmployerService;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.ErrorResult;
@@ -11,6 +13,8 @@ import kodlamaio.HRMS.core.utilities.result.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.EmployerDao;
 import kodlamaio.HRMS.entities.concretes.Employer;
 
+
+@Service
 public class EmployerManager  implements EmployerService{
 	
 	private EmployerDao employerDao;

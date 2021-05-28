@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.UserService;
-import kodlamaio.HRMS.core.entities.User;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.SuccessDataResult;
 import kodlamaio.HRMS.dataAccess.abstracts.UserDao;
+import kodlamaio.HRMS.entities.concretes.User;
 
 @Service
 public class UserManager  implements UserService{

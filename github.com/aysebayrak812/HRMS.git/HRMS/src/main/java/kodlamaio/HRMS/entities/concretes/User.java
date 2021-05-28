@@ -1,4 +1,4 @@
-package kodlamaio.HRMS.core.entities;
+package kodlamaio.HRMS.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +13,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name="users")
+@Data
 @Entity
 @AllArgsConstructor 
+@Table(name="users")
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//extend edebilmek için 
-@Data
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//extend edebilmek için 
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 	
 	@Id

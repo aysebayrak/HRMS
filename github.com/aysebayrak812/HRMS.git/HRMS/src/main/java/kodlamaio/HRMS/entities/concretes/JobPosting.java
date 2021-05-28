@@ -1,5 +1,6 @@
 package kodlamaio.HRMS.entities.concretes;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +31,10 @@ public class JobPosting { //iş ilanı
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="job_description")
+	
+	
+	@Column(name="job_description") //,length = 3000
+	//@Type(type="text")
 	private String jobDescription; //iş tanımı 
 	
 	@Column(name="max_salary")
@@ -44,7 +50,7 @@ public class JobPosting { //iş ilanı
 	private LocalDate releaseDate;//yayınlanma tarihi
 	
 	@Column(name="application_deadline")
-	private LocalDate applicationDeadline;//son başvuru 
+	private Date applicationDeadline;//son başvuru 
 	
 	@Column(name="is_active")
 	private boolean isActive;
