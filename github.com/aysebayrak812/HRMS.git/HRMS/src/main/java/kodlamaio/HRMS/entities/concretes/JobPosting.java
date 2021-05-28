@@ -45,6 +45,8 @@ public class JobPosting { //iş ilanı
 	
 	@Column(name="application_deadline")
 	private LocalDate applicationDeadline;//son başvuru 
+	
+	@Column(name="is_active")
 	private boolean isActive;
 	
 	@ManyToOne()
