@@ -1,4 +1,4 @@
-package kodlamaio.HRMS.api;
+package kodlamaio.HRMS.api.controllers;
 
 import java.util.List;
 
