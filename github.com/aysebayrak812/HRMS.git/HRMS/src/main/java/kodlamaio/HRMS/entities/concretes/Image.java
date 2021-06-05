@@ -1,13 +1,14 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,25 +16,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor//ÇOKLU CONST.
-@NoArgsConstructor//PARAMETRESİZ
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name="job_titles")
-public class JobTitle {
+@Table(name="resume_images")
+public class Image {
+	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//bir bir artti diye
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="title")
-	private String title;
+	@ManyToOne()
+	@JoinColumn(name="resume_id")
+	private Resume resume;
 	
-	
-	
-	@OneToMany(mappedBy = "jobTitle")
-	private List<JobPosting> jobPostings;
-	
-	
+	@Column(name="url")
+	private String imageUrl;
 
 }

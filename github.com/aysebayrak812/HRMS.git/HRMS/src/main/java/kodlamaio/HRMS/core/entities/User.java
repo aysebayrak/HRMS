@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor 
 @Table(name="users")
 @NoArgsConstructor
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//extend edebilmek için 
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//extend edebilmek için hata aldığım kısım 
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 	
@@ -28,8 +31,14 @@ public class User {
 	private int id;
 	
 	@Column(name="email")
+	@Email
+	@NotBlank
+	@NotNull
 	private String email;
 	
+	
+	@NotBlank
+	@NotNull
 	@Column(name="password")
 	private String password;
 

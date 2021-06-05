@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -34,5 +35,7 @@ public class Candidate extends User{
 	
 	@Column(name="birth_date")
 	private Date birthDate;
+	
+	
 
 }

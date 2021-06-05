@@ -1,7 +1,8 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,13 +48,15 @@ public class JobPosting { //iş ilanı
 	private int openPositionCount; //açık pozisyon
 	
 	@Column(name="release_date")
-	private LocalDate releaseDate;//yayınlanma tarihi
+	private Date releaseDate;//yayınlanma tarihi
 	
 	@Column(name="application_deadline")
 	private Date applicationDeadline;//son başvuru 
 	
 	@Column(name="is_active")
 	private boolean isActive;
+	
+	
 	
 	@ManyToOne()
 	@JoinColumn(name="job_title_id")
