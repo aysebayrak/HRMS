@@ -1,6 +1,7 @@
 package kodlamaio.HRMS.entities.concretes;
 
 
+
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -48,10 +49,10 @@ public class JobPosting { //iş ilanı
 	private int openPositionCount; //açık pozisyon
 	
 	@Column(name="release_date")
-	private Date releaseDate;//yayınlanma tarihi
+	private LocalDate releaseDate;     //yayınlanma tarihi
 	
 	@Column(name="application_deadline")
-	private Date applicationDeadline;//son başvuru 
+	private LocalDate applicationDeadline;//son başvuru 
 	
 	@Column(name="is_active")
 	private boolean isActive;

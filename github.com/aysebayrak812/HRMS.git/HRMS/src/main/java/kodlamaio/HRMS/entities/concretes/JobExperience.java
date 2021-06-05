@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +21,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="resume_edu_exp")
-public class JobExperience {
+@Table(name="resume_job_exp")
+public class JobExperience {   //teçrübe
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +30,9 @@ public class JobExperience {
 	private int id;
 	
 	
-	@ManyToOne()
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(targetEntity = Resume.class)
 	@JoinColumn(name="resume_id")
 	private Resume resume;
 	
