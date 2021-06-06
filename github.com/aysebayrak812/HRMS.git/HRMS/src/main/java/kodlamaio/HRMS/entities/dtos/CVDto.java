@@ -36,6 +36,6 @@ public class CVDto  implements Dto{
 	private List<@Valid CandidateLink> candidateLinks;
 	private List<@Valid CandidateSkill> candidateSkills;
 	
-	
+	//list ile birden fazla getirmeyi sağladık
 
 }
