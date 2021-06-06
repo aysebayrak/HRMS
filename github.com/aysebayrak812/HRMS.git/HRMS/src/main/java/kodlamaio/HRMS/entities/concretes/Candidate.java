@@ -1,6 +1,7 @@
 package kodlamaio.HRMS.entities.concretes;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +36,27 @@ public class Candidate extends User{
 	
 	@Column(name="birth_date")
 	private Date birthDate;
+	
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<CandidateEducation> candidateEducations;
+	
+	@OneToMany(mappedBy = "candidate")
+	 private List<CandidateImage> candidateImages;
+
+	@OneToMany(mappedBy = "candidate")
+	private List<CandidateExperience> candidateExperiences;
+
+	@OneToMany(mappedBy = "candidate")
+	private List<CandidateLanguage> candidateLanguages;
+
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateLink> candidateLinks;
+
+    @OneToMany(mappedBy = "candidate")
+	private List<CandidateSkill> candidateSkills;
+	
+	
 	
 	
 

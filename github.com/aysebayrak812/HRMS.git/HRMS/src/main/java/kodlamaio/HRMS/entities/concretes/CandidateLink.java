@@ -1,7 +1,5 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,39 +8,36 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="resume_techs")
-public class Technology {
-	
+@Entity
+@Table(name="candidate_links")
+public class CandidateLink {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
+	@Column(name = "link")
+	private String link;
+	
 	
 	@ManyToOne()
-	@JoinColumn(name="resume_id")
-	private Resume resume;
+	@JsonIgnore()
+	@JoinColumn(name="candidate_id")
+	private Candidate candidate ;
 	
-	
-	@NotBlank(message="Boş geçilemez")
-	@Column(name="techs_name")
-	private String technologName;
-	
-	@Column(name="created_date")
-	private LocalDate createdDate;
-	
+	 @ManyToOne()
+	 @JoinColumn(name = "link_id")
+	 private LinkType linkType;
 
 }

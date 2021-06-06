@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,20 +21,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="resume_links")
-public class Link {
+@Table(name="candidate_skills")
+public class CandidateSkill {  //beceri
 	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
-    
-    @ManyToOne()
-    @JoinColumn(name="resume_id")
-	private Resume resume;
-    
-    @Column(name="link_type")
-	private String linkType;
+	
+	
+	@NotNull
+	@NotBlank
+	@Column(name="name")
+	private String name;
+	
+	@ManyToOne()
+	@JoinColumn(name="candidate_id")
+	@JsonIgnore()
+	private Candidate candidate;
 	
 
 }

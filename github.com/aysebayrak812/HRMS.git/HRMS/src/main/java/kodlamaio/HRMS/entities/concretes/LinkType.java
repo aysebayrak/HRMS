@@ -1,15 +1,16 @@
 package kodlamaio.HRMS.entities.concretes;
 
-
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="resume_images")
-public class Image {
+@Table(name="link_types")
+public class LinkType {
 	
 	
 	@Id
@@ -28,11 +29,12 @@ public class Image {
 	@Column(name="id")
 	private int id;
 	
-	@ManyToOne()
-	@JoinColumn(name="resume_id")
-	private Resume resume;
+    @Column(name="type")
+    private String type;
+    
+    @OneToMany(mappedBy = "linkType")
+    @JsonIgnore()
+    private List<CandidateLink>  candidateLinks;
 	
-	@Column(name="url")
-	private String imageUrl;
 
 }
