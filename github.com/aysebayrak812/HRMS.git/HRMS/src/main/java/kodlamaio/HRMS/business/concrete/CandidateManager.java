@@ -54,4 +54,11 @@ private CandidateDao candidateDao;
 		return new SuccessResult("iş arayan eklendi");
 	}
 
+
+	@Override
+	public DataResult<Candidate> getById(int id) {
+	return new SuccessDataResult<>(this.candidateDao.findById(id).get());
+		
+	}
+
 }
