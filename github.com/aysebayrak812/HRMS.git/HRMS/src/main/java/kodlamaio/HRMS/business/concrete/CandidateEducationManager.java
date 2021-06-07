@@ -2,6 +2,7 @@ package kodlamaio.HRMS.business.concrete;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.CandidateEducationService;
@@ -19,6 +20,8 @@ public class CandidateEducationManager  implements CandidateEducationService{
 	
 	private CandidateEducationDao candidateEducationDao;
 
+	
+	@Autowired
 	public CandidateEducationManager(CandidateEducationDao candidateEducationDao) {
 		super();
 		this.candidateEducationDao = candidateEducationDao;
