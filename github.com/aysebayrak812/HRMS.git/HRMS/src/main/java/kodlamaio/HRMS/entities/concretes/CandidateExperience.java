@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="canidate_exp")
+@Table(name="candidate_exp")
 public class CandidateExperience {  //deneyim
 	
 	@Id
@@ -34,10 +35,14 @@ public class CandidateExperience {  //deneyim
 	private int id;
 	
 	@Column(name="company_name")
+	@NotNull
+	@NotBlank
 	private String companyName;
 	
 	
 	@Column(name="position")
+    @NotNull
+    @NotBlank
 	private String position;
 	
     @Column(name = "start_date")

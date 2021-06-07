@@ -1,6 +1,8 @@
 package kodlamaio.HRMS.configurations;
 
+
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -9,9 +11,11 @@ import com.cloudinary.utils.ObjectUtils;
 import kodlamaio.HRMS.core.utilities.ımageCloudinary.CloudinaryImageManager;
 import kodlamaio.HRMS.core.utilities.ımageCloudinary.ImageService;
 
-public class AppConfigurationİmage {
+
+@Configuration
+public class AppConfiguration {
 	
-	@Bean
+	
 	private Cloudinary cloudinaryService() {
 		return new Cloudinary(ObjectUtils.asMap(
 				 "cloud_name", "dsmsdb3va",
@@ -19,6 +23,7 @@ public class AppConfigurationİmage {
 				 "api_secret", "MXpQkvHItkrOwDAd2nFl8mOC7GM"
 				
 				));
+		
 	}
 	
   @Bean

@@ -35,7 +35,7 @@ public class CandidateLanguage {
 	@Min(1)
 	@Max(5)
 	@NotNull()
-	private short level;
+	private char level;
 	
     @ManyToOne()
     @JoinColumn(name = "language_id")

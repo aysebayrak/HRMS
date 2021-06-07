@@ -4,7 +4,7 @@ import java.io.IOException; //SOR
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
@@ -15,7 +15,7 @@ import kodlamaio.HRMS.core.utilities.result.ErrorDataResult;
 import kodlamaio.HRMS.core.utilities.result.SuccessDataResult;
 
 
-@Service
+
 public class CloudinaryImageManager  implements ImageService{
 	
 	private final Cloudinary cloudinary;
