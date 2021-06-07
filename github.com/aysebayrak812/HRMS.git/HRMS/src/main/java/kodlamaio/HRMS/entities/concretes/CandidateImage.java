@@ -1,8 +1,8 @@
 package kodlamaio.HRMS.entities.concretes;
 
 
-
 import java.time.LocalDate;
+//import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +35,8 @@ public class CandidateImage {
 	    private String url;
 
 	   @Column(name="uploaded_date") 
-	   private LocalDate uploadedDate;  //"2 Ekim 2007, 13:45.30.123456789" 
+	   private LocalDate uploadedDate;
+	 // private LocalDateTime uploadedDate=LocalDateTime.now();  //"2 Ekim 2007, 13:45.30.123456789" 
 	  
 	  
 	  @ManyToOne()
