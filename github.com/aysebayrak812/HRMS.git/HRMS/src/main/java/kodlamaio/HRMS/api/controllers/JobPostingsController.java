@@ -1,6 +1,7 @@
 package kodlamaio.HRMS.api.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import kodlamaio.HRMS.business.abstracts.JobPostingSerivice;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.Result;
 import kodlamaio.HRMS.entities.concretes.JobPosting;
+import kodlamaio.HRMS.entities.dtos.JobPostingDto;
 
 @RestController
 @RequestMapping("/api/jobpostings")
@@ -32,12 +34,24 @@ public class JobPostingsController {
 	public DataResult<List<JobPosting>> getAll(){
 		return this.jobPostingService.getAll();		
 	}
+//	
+//	@PostMapping("/add")
+//	public ResponseEntity<?> add(@RequestBody JobPostingDto  jobPostDto) {
+//	Result result=this.jobPostingService.add(jobPostDto);
+//		if(result.isSuccess()) {
+//		    return ResponseEntity.ok(result);
+//		}
+//		
+//		   return ResponseEntity.badRequest().body(result);
+//		
+//		
+//		
+//	}
+	
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosting  jobPosting) {
+	public Result add(@RequestBody JobPosting jobPosting) {
 		return this.jobPostingService.add(jobPosting);
-		
-		
 	}
 	
 	

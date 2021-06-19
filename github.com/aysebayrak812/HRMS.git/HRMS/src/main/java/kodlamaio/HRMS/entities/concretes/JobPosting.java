@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="job_postings")						
+@Table(name="job_postings")	
+//@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ", shape = JsonFormat.Shape.STRING)
 public class JobPosting { //iş ilanı
 
 	@Id
@@ -49,6 +52,8 @@ public class JobPosting { //iş ilanı
 	private int openPositionCount; //açık pozisyon
 	
 	@Column(name="release_date")
+	//@DateTimeFormat(iso = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+	//@JsonFormat(pattern = "YYYY-MM-dd HH:mm")
 	private LocalDate releaseDate;     //yayınlanma tarihi
 	
 	@Column(name="application_deadline")
@@ -72,7 +77,13 @@ public class JobPosting { //iş ilanı
 	@JoinColumn(name="employer_id")
 	private Employer employer;
 	
-	
+    @ManyToOne()
+    @JoinColumn(name = "work_place_id")
+	private WorkPlace workPlace;
+    
+    @ManyToOne()
+    @JoinColumn(name = "work_time_id")
+    private WorkTime workTime;
 
 	
 	
