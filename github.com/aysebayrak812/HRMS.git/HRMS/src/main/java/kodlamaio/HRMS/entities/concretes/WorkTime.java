@@ -21,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="work_time")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","jobAds"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobPostings" })
 public class WorkTime {
 	
 	
@@ -35,7 +35,7 @@ public class WorkTime {
 	
 	
 	@OneToMany(mappedBy = "workTime")
-	private List<JobPosting> jobPost;
+	private List<JobPosting> jobPostings;
 	
 
 }

@@ -55,5 +55,9 @@ public class JobPostingsController {
 	}
 	
 	
+//	@GetMapping("/getactiveposting")
+//	public DataResult<List<JobPosting>> getActiveJobPosting(){
+//		return this.jobPostingService.getActiveJobPosting();
+//	}
 
 }

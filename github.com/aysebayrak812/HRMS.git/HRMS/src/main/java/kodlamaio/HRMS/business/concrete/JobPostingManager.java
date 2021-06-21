@@ -1,6 +1,6 @@
 package kodlamaio.HRMS.business.concrete;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +11,14 @@ import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.Result;
 import kodlamaio.HRMS.core.utilities.result.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.result.SuccessResult;
-import kodlamaio.HRMS.dataAccess.abstracts.CityDao;
-import kodlamaio.HRMS.dataAccess.abstracts.EmployerDao;
+//import kodlamaio.HRMS.dataAccess.abstracts.CityDao;
+//import kodlamaio.HRMS.dataAccess.abstracts.EmployerDao;
 import kodlamaio.HRMS.dataAccess.abstracts.JobPostingDao;
-import kodlamaio.HRMS.dataAccess.abstracts.JobTitleDao;
-import kodlamaio.HRMS.dataAccess.abstracts.WorkPlaceDao;
-import kodlamaio.HRMS.dataAccess.abstracts.WorkTimeDao;
+//import kodlamaio.HRMS.dataAccess.abstracts.JobTitleDao;
+//import kodlamaio.HRMS.dataAccess.abstracts.WorkPlaceDao;
+//import kodlamaio.HRMS.dataAccess.abstracts.WorkTimeDao;
 import kodlamaio.HRMS.entities.concretes.JobPosting;
-import kodlamaio.HRMS.entities.dtos.JobPostingDto;
+//import kodlamaio.HRMS.entities.dtos.JobPostingDto;
 
 
 @Service
@@ -84,5 +84,12 @@ public class JobPostingManager  implements JobPostingSerivice{
 		    return new SuccessResult("Başarılı");
 	   
 	}
+
+
+//
+//	@Override
+//	public DataResult<List<JobPosting>> getActiveJobPosting() {
+//	   return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findByActive(true),"Aktif iş ilanları Listelendi");
+//	}
 
 }

@@ -19,7 +19,7 @@ import kodlamaio.HRMS.entities.concretes.Candidate;
 
 
 @RestController
-@RequestMapping("7api/candidates")
+@RequestMapping("/api/candidates")
 @CrossOrigin
 public class CandidatesController {
 	

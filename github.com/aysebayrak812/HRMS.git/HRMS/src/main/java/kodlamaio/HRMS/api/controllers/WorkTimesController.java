@@ -13,7 +13,7 @@ import kodlamaio.HRMS.entities.concretes.WorkTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/worktime")
+@RequestMapping("/worktimes")
 @CrossOrigin
 public class WorkTimesController {
 	

@@ -9,6 +9,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import kodlamaio.HRMS.core.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +19,13 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@EqualsAndHashCode(callSuper = false) //data yı baştan başlat
+@EqualsAndHashCode(callSuper = true) //data yı baştan başlat
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name="id")
 @Table(name="candidates")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Candidate extends User{
 	
 	
