@@ -86,6 +86,14 @@ public class JobPostingManager  implements JobPostingSerivice{
 	}
 
 
+
+	@Override
+	public Result updateStatus(int status, int id) {
+		this.jobPostingDao.updateStatus(status, id);
+		return new SuccessResult();
+	}
+
+
 //
 //	@Override
 //	public DataResult<List<JobPosting>> getActiveJobPosting() {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.HRMS.business.abstracts.JobPostingSerivice;
@@ -59,5 +60,10 @@ public class JobPostingsController {
 //	public DataResult<List<JobPosting>> getActiveJobPosting(){
 //		return this.jobPostingService.getActiveJobPosting();
 //	}
+	
+	@PostMapping("/statusupdate")
+	public Result updateStatus(@RequestParam("status") int status,@RequestParam("id")int id) {
+		return this.jobPostingService.updateStatus(status, id);
+	}
 
 }

@@ -62,6 +62,9 @@ public class JobPosting { //iş ilanı
 	@Column(name="is_active")
 	private boolean isActive;
 	
+	@Column(name="status")
+	private int status;
+	
 	
 	
 	@ManyToOne()

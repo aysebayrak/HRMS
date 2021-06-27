@@ -14,5 +14,7 @@ public interface JobPostingSerivice {
 	
 	//DataResult<JobPosting> getActiveAndCompanyId(int id);
 //	DataResult<List<JobPosting>> getActiveJobPosting();
- 
+	
+	
+   Result updateStatus(int status,int id);
 }
