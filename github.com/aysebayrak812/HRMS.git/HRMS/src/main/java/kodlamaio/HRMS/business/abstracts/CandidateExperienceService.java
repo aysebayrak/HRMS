@@ -12,4 +12,6 @@ public interface CandidateExperienceService {
 	  DataResult<List<CandidateExperience>> getAll();
 	  DataResult<List<CandidateExperience>> getAllByCandidateIdOrderByLeaveDate(int candidateId); //işten arılma tarihine göre
 
+	  DataResult<List<CandidateExperience>>  getAllByCandidateId(int candidateId);
+	  Result update(CandidateExperience candidateExperience);
 }

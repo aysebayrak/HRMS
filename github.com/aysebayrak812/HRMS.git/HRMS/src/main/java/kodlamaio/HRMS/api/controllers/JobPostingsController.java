@@ -35,19 +35,8 @@ public class JobPostingsController {
 	public DataResult<List<JobPosting>> getAll(){
 		return this.jobPostingService.getAll();		
 	}
-//	
-//	@PostMapping("/add")
-//	public ResponseEntity<?> add(@RequestBody JobPostingDto  jobPostDto) {
-//	Result result=this.jobPostingService.add(jobPostDto);
-//		if(result.isSuccess()) {
-//		    return ResponseEntity.ok(result);
-//		}
-//		
-//		   return ResponseEntity.badRequest().body(result);
-//		
-//		
-//		
-//	}
+
+	
 	
 	
 	@PostMapping("/add")

@@ -12,7 +12,8 @@ public interface CandidateEducationService {
 	 Result addAll(List<CandidateEducation> candidateEducation);  //çoklu ekleme 
 	 DataResult<List<CandidateEducation>> getAll();
 	 DataResult<List<CandidateEducation>> getAllByCandidateIdOrderByGraduationYear(int candidateId);//mezuniyete göre
-	 
+	 Result update(CandidateEducation candidateEducation);
+		DataResult<List<CandidateEducation>> getAllByCandidateId(int candidateId);
 	
 
 }

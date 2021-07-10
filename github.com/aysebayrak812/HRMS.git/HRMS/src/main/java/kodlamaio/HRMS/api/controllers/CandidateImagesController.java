@@ -43,5 +43,11 @@ public class CandidateImagesController {
 	    }
 
 	    
+	    
+	    @GetMapping("/getByCandidateId")
+	    public ResponseEntity<?> getByCandidateId(int candidateId){
+	    	return ResponseEntity.ok(this.candidateImageService.getAllByCandidateId(candidateId));
+	    }
+	    
 
 }

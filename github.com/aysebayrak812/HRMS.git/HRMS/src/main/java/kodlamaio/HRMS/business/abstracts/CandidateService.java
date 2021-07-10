@@ -13,7 +13,7 @@ public interface CandidateService {
 	DataResult<Candidate> getByEmail(String email);
 	Result add(Candidate candidate);
 	
-	
+	Result update(Candidate candidate);
 	DataResult<Candidate> getById(int id);
 	DataResult<CVDto> getResumeByCandidateId(int candidateId);
 	

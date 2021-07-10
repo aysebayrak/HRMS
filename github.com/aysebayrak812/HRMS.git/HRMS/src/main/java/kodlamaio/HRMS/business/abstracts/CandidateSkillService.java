@@ -12,4 +12,6 @@ public interface CandidateSkillService { //beceri
 	 DataResult<List<CandidateSkill>> getAllByCandidateId(int candidateId);
 	 Result addAll(List<CandidateSkill> candidateSkill);
 
+	 
+	 Result update(CandidateSkill candidateSkill);
 }

@@ -50,4 +50,18 @@ public class CandidateExperienceManager implements  CandidateExperienceService {
 		return new SuccessDataResult<List<CandidateExperience>>(this.candidateExperienceDao.getAllByCandidateIdOrderByLeaveDateDesc(candidateId));
 	}
 
+
+	@Override
+	public DataResult<List<CandidateExperience>> getAllByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<CandidateExperience>>(this.candidateExperienceDao.getAllByCandidateId(candidateId));
+	}
+
+
+	@Override
+	public Result update(CandidateExperience candidateExperience) {
+		this.candidateExperienceDao.save(candidateExperience);
+		return new SuccessResult("Güncellendi");
+		
+	}
+
 }

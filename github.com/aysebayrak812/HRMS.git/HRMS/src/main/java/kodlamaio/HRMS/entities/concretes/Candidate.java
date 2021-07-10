@@ -61,7 +61,9 @@ public class Candidate extends User{
     @OneToMany(mappedBy = "candidate")
 	private List<CandidateSkill> candidateSkills;
 	
-	
+    
+    @OneToMany(mappedBy = "candidate")
+	private List<Favorite> favorites;
 	
 	
 

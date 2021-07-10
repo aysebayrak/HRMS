@@ -8,5 +8,5 @@ import kodlamaio.HRMS.entities.concretes.CandidateExperience;
 
 public interface CandidateExperienceDao  extends JpaRepository<CandidateExperience,Integer>{  //deneyim
     List<CandidateExperience> getAllByCandidateIdOrderByLeaveDateDesc(int candidateId); //işten ayrılış tarihine göre
-
+    List<CandidateExperience> getAllByCandidateId(int candidateId);
 }

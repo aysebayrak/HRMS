@@ -45,4 +45,10 @@ public class CandidateSkillManager  implements CandidateSkillService{
 	     return new SuccessResult();
 	}
 
+	@Override
+	public Result update(CandidateSkill candidateSkill) {
+		this.candidateSkillDao.save(candidateSkill);
+		return new SuccessResult("Beceri Güncellendi");
+	}
+
 }

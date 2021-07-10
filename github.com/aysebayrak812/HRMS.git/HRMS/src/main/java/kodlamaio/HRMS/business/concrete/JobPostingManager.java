@@ -1,10 +1,16 @@
 package kodlamaio.HRMS.business.concrete;
 
+
+import org.springframework.data.domain.Pageable;
 //import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kodlamaio.HRMS.business.abstracts.JobPostingSerivice;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
@@ -19,6 +25,7 @@ import kodlamaio.HRMS.dataAccess.abstracts.JobPostingDao;
 //import kodlamaio.HRMS.dataAccess.abstracts.WorkTimeDao;
 import kodlamaio.HRMS.entities.concretes.JobPosting;
 //import kodlamaio.HRMS.entities.dtos.JobPostingDto;
+import kodlamaio.HRMS.entities.dtos.JobPostingFilterDto;
 
 
 @Service
@@ -91,6 +98,54 @@ public class JobPostingManager  implements JobPostingSerivice{
 	public Result updateStatus(int status, int id) {
 		this.jobPostingDao.updateStatus(status, id);
 		return new SuccessResult();
+	}
+
+
+
+	@Override
+	public DataResult<List<JobPosting>> getByStatus(@RequestParam("status")int status) {
+		return new SuccessDataResult<List<JobPosting>> (this.jobPostingDao.getByStatus(status));
+	}
+
+
+
+	@Override
+	public DataResult<List<JobPosting>> getByStatusAndEmployerId(int status, int employerId) {
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByStatusAndEmployerId(status, employerId));
+	}
+
+
+
+	@Override
+	public Result Update(JobPosting jobPosting) {
+		this.jobPostingDao.save(jobPosting);
+		return new SuccessResult();
+	}
+
+
+
+	@Override
+	public DataResult<JobPosting> getById(int id) {
+		return new SuccessDataResult<JobPosting>(this.jobPostingDao.getById(id));
+	}
+
+
+
+	@Override
+	public DataResult<List<JobPosting>> getAllSorted() {
+	
+		Sort sort =Sort.by(Sort.Direction.DESC,"releaseDate");
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(sort),"Başarılı");
+				
+	}
+
+
+
+	@Override
+	public DataResult<List<JobPosting>> getByAndFilter(int pageNo, int pageSize, JobPostingFilterDto jobPostingFilter) {
+
+		 Pageable pageable = PageRequest.of(pageNo -1, pageSize);
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByFilter(jobPostingFilter,  pageable).getContent(),this.jobPostingDao.getByFilter(jobPostingFilter, pageable).getTotalElements()+"");
 	}
 
 

@@ -11,6 +11,7 @@ public interface CandidateLanguageService {
 	 DataResult<List<CandidateLanguage>> getAllByCandidateId(int candidateId);
 	 Result addAll(List<CandidateLanguage> candidateLanguage);//hepsini ekle 
 	 DataResult<List<CandidateLanguage>> getAll();
+	 Result update(CandidateLanguage candidateLanguage);
 	    
 
 }

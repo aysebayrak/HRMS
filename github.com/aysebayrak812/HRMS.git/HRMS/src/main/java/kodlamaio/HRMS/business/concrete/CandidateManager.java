@@ -100,4 +100,10 @@ private CandidateSkillService candidateSkillService;
 		return new SuccessDataResult<>(cvDto);
 	}
 
+	@Override
+	public Result update(Candidate candidate) {
+		this.candidateDao.save(candidate);
+		return new SuccessResult("Aday Güncellendi");
+	}
+
 }

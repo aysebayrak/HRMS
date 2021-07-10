@@ -48,4 +48,10 @@ public class CandidateLanguageManager  implements CandidateLanguageService  {
 		return new SuccessDataResult<List<CandidateLanguage>>(this.candidateLanguageDao.findAll());
 	}
 
+	@Override
+	public Result update(CandidateLanguage candidateLanguage) {
+		this.candidateLanguageDao.save(candidateLanguage);
+		return new SuccessResult("Dil Güncellendi");
+	}
+
 }

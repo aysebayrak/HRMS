@@ -46,4 +46,11 @@ public class CandidateLinkManager  implements CandidateLinkService {
 		 
 	}
 
+	@Override
+	public Result update(CandidateLink candidateLink) {
+	
+		this.candidateLinkDao.save(candidateLink);
+		return new SuccessResult("Link Güncellendi");
+	}
+
 }

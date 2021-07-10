@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,8 +45,20 @@ public class CandidatesController {
 		return this.candidateService.add(candidate);
 	}
 
+	@GetMapping("/getResumeByCandidateId")
 	public ResponseEntity<?> getResumeByCandidateId(@RequestParam int candidateId){
 		return ResponseEntity.ok(this.candidateService.getResumeByCandidateId(candidateId));
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<?> update(@RequestBody Candidate candidate){
+		return ResponseEntity.ok(this.candidateService.update(candidate));
+	}
+	
+	
+	@GetMapping("/getById")
+	public ResponseEntity<?> getById(@RequestParam int id){
+		return ResponseEntity.ok(this.candidateService.getById(id));
 	}
 	
 }

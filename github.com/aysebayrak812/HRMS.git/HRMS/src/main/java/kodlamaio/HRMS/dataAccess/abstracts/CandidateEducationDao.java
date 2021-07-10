@@ -9,4 +9,6 @@ import kodlamaio.HRMS.entities.concretes.CandidateEducation;
 public interface CandidateEducationDao  extends   JpaRepository<CandidateEducation,Integer> {
 	List<CandidateEducation> getAllByCandidateIdOrderByGraduationYear(int candidateId);
 	//okul mezuniyete göre sıralamak için 
+	
+	List<CandidateEducation> getAllByCandidateId(int candidateId);
 }

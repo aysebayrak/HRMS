@@ -11,4 +11,5 @@ public interface CandidateLinkService {
 	   DataResult<List<CandidateLink>> getAllByCandidateId(int candidateId);
 	   Result addAll(List<CandidateLink> candidateLink);//savaall mantığında
 
+	   Result update(CandidateLink candidateLink);
 }

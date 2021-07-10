@@ -3,7 +3,7 @@ package kodlamaio.HRMS.entities.concretes;
 
 
 import java.time.LocalDate;
-
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -62,7 +63,7 @@ public class JobPosting { //iş ilanı
 	@Column(name="is_active")
 	private boolean isActive;
 	
-	@Column(name="status")
+	@Column(name="status" ,columnDefinition="-1")
 	private int status;
 	
 	
@@ -88,6 +89,10 @@ public class JobPosting { //iş ilanı
     @JoinColumn(name = "work_time_id")
     private WorkTime workTime;
 
+
+	@OneToMany(mappedBy = "jobPosting")
+	private List<Favorite> favorites;
+   
 	
 	
 	
