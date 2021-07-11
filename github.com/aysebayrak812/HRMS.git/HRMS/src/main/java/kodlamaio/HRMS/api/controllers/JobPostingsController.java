@@ -1,5 +1,8 @@
 package kodlamaio.HRMS.api.controllers;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,7 +17,7 @@ import kodlamaio.HRMS.business.abstracts.JobPostingSerivice;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.Result;
 import kodlamaio.HRMS.entities.concretes.JobPosting;
-import kodlamaio.HRMS.entities.dtos.JobPostingDto;
+
 
 @RestController
 @RequestMapping("/api/jobpostings")
@@ -37,22 +40,50 @@ public class JobPostingsController {
 	}
 
 	
-	
-	
-	@PostMapping("/add")
-	public Result add(@RequestBody JobPosting jobPosting) {
-		return this.jobPostingService.add(jobPosting);
-	}
-	
-	
-//	@GetMapping("/getactiveposting")
-//	public DataResult<List<JobPosting>> getActiveJobPosting(){
-//		return this.jobPostingService.getActiveJobPosting();
-//	}
-	
 	@PostMapping("/statusupdate")
 	public Result updateStatus(@RequestParam("status") int status,@RequestParam("id")int id) {
 		return this.jobPostingService.updateStatus(status, id);
 	}
 
+	
+	@GetMapping("/getById")
+	public ResponseEntity<?> getById(@RequestParam int id) {
+		return ResponseEntity.ok(this.jobPostingService.getById(id));
+				
+	}
+	
+
+	@PostMapping("/add")
+	public ResponseEntity<?> add(@Valid @RequestBody JobPosting jobPosting) {
+		return ResponseEntity.ok(this.jobPostingService.add(jobPosting));
+	}
+	
+	@PostMapping("/delete")
+	public ResponseEntity<?> delete(int jobPostingId) {
+		return ResponseEntity.ok(this.jobPostingService.delete( jobPostingId));
+	}
+	
+	@GetMapping("/getAllSorted")
+	public ResponseEntity<?> getAllSorted() {
+		return ResponseEntity.ok(this.jobPostingService.getAllSorted());
+	
+  }
+	
+	@GetMapping("/getByStatusAndEmployerId")
+	public ResponseEntity<?> getByStatusAndEmployerId(int status, int employerId){
+		return ResponseEntity.ok(this.jobPostingService.getByStatusAndEmployerId(status, employerId));
+	}
+
+	@GetMapping("/getAllTrue")
+	public DataResult<List<JobPosting>> getByStatus(int status) {
+		return this.jobPostingService.getByStatus(status);
+	}
+	
+	@GetMapping("/getByPage")
+	public ResponseEntity<?> getByPage( @RequestParam int pageNo,@RequestParam int pageSize){
+		return   ResponseEntity.ok(this.jobPostingService.getByPage(pageNo, pageSize));
+	}
+	
+	
+	
 }

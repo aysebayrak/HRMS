@@ -117,7 +117,7 @@ public class JobPostingManager  implements JobPostingSerivice{
 
 
 	@Override
-	public Result Update(JobPosting jobPosting) {
+	public Result update(JobPosting jobPosting) {
 		this.jobPostingDao.save(jobPosting);
 		return new SuccessResult();
 	}
@@ -147,6 +147,26 @@ public class JobPostingManager  implements JobPostingSerivice{
 		 Pageable pageable = PageRequest.of(pageNo -1, pageSize);
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.getByFilter(jobPostingFilter,  pageable).getContent(),this.jobPostingDao.getByFilter(jobPostingFilter, pageable).getTotalElements()+"");
 	}
+
+
+
+	@Override
+	public Result delete(int  jobPostingId) {
+		this.jobPostingDao.deleteById(jobPostingId);
+		return new SuccessResult("İş İlani Silindi");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobPosting>> getByPage(int pageNo, int pageSize) {
+		Pageable pageable=PageRequest.of(pageNo-1,pageSize);
+		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll(pageable).getContent());
+	}
+
+
+
+
 
 
 //

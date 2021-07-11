@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,17 @@ public class CandidateLinksController {
     public ResponseEntity<?> getAll(){
         return ResponseEntity.ok(this.candidateLinkService.getAll());
     }
+    
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody CandidateLink candidateLink){
+    	return ResponseEntity.ok(this.candidateLinkService.update(candidateLink));
+    	
+    }
+    
+    @GetMapping("/getAllByCandidateId")
+	public ResponseEntity<?> getAllByCandidateId(int candidateId){
+		return ResponseEntity.ok(this.candidateLinkService.getAllByCandidateId(candidateId));	
+	}
 
 }
+

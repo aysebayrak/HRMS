@@ -20,10 +20,13 @@ public interface JobPostingSerivice {
    Result updateStatus(int status,int id);
    DataResult<List<JobPosting>> getByStatus(int status);
    DataResult<List<JobPosting>> getByStatusAndEmployerId(int status, int employerId);
-   Result Update(JobPosting jobPosting);
+   Result update(JobPosting jobPosting);
    DataResult<JobPosting> getById(int id);
    DataResult<List<JobPosting>> getAllSorted(); //oluşturulma tarihine göre
-   
+   Result delete(int jobPostingId);
+
+
+	DataResult<List<JobPosting>> getByPage(int pageNo,int pageSize);
    
    
    DataResult<List<JobPosting>> getByAndFilter(int pageNo, int pageSize, JobPostingFilterDto jobPostingFilter);

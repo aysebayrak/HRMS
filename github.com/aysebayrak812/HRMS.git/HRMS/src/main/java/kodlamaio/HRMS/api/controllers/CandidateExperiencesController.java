@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,5 +42,16 @@ public class CandidateExperiencesController {
 	    public ResponseEntity<?> getAllOrderByLeaveDate(@RequestParam int candidateId){
 	        return ResponseEntity.ok(this.candidateExperienceService.getAllByCandidateIdOrderByLeaveDate(candidateId));
 	    }
+	    
+	    @PutMapping("/update")
+	    public ResponseEntity<?> update(@RequestBody CandidateExperience candidateExperience){
+	    	return ResponseEntity.ok(this.candidateExperienceService.update(candidateExperience));
+	    	
+	    }
+	    
+	    @GetMapping("/getAllByCandidateId")
+		public ResponseEntity<?> getAllByCandidateId(int candidateId){
+			return ResponseEntity.ok(this.candidateExperienceService.getAllByCandidateId(candidateId));	
+		}
 
 }
